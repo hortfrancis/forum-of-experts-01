@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import path from 'path';
 import logger from './middleware/logger';
 
 import chatWithGPT from './services/openai';
@@ -9,14 +10,24 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(logger);
 
-app.get(
-    '/',
-    (req: Request, res: Response) => {
-        res.send('Hello World!');
-    }
-);
+
+
+app.post('/forum/discuss', (req: Request, res: Response) => {
+    const message = req.body.message;
+
+    console.log('Received message:', message);
+
+    // For now, just echo the received message back
+    res.send({
+        message: 'Received message',
+        content: `Echo: ${message}`
+    });
+});
+
+
 
 app.get(
     '/test/openai',

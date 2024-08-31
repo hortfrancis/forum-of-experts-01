@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#conversation {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+}
+
+.gpt-4 {
+    background-color: #f0f0f0;
+}
+
+.claude {
+    background-color: #e0f7fa;
+}
